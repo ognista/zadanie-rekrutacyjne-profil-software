@@ -4,7 +4,7 @@ Kinga Zyborowicz
 
 - [x] Init
 - [x] Add buttons
-- [ ] Add table
+- [x] Add table
 - [ ] Add sorting
 - [ ] Add modal
 - [ ] Add favorites
