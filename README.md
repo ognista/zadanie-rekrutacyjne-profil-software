@@ -3,7 +3,7 @@ Kinga Zyborowicz
 # Things to do
 
 - [x] Init
-- [ ] Add buttons
+- [x] Add buttons
 - [ ] Add table
 - [ ] Add sorting
 - [ ] Add modal
