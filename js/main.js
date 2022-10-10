@@ -216,13 +216,53 @@ const showModal = (itemData) => {
 
   const image = document.createElement("img");
   const name = document.createElement("span");
+  const favButton = document.createElement("button");
 
   image.src = itemData.image;
   image.className = "modal-image";
   name.innerHTML = itemData.name;
 
+  favButton.innerText = isItemInLocalStorage(itemData)
+    ? "Remove from fav"
+    : "Add to fav";
+
+  favButton.addEventListener("click", () =>
+    updateLocalStorage(itemData, favButton)
+  );
+
   modalBody.appendChild(image);
   modalBody.appendChild(name);
+  modalBody.appendChild(favButton);
 
   modal.classList.add("open");
 };
+
+const getLocalStorage = () => {
+  const localStorageData = window.localStorage.getItem("favorites");
+  return localStorageData ? JSON.parse(localStorageData) : [];
+};
+
+const updateLocalStorage = (itemData, favButton) => {
+  const localStorageData = getLocalStorage();
+
+  if (localStorageData.some((item) => item.name === itemData.name)) {
+    const updatedLocalStorageData = localStorageData.filter(
+      (item) => item.name !== itemData.name
+    );
+    window.localStorage.setItem(
+      "favorites",
+      JSON.stringify(updatedLocalStorageData)
+    );
+    favButton.innerText = "Add to fav";
+  } else {
+    const updatedLocalStorageData = [...localStorageData, itemData];
+    window.localStorage.setItem(
+      "favorites",
+      JSON.stringify(updatedLocalStorageData)
+    );
+    favButton.innerText = "Remove from fav";
+  }
+};
+
+const isItemInLocalStorage = (itemData) =>
+  getLocalStorage().some((item) => item.name === itemData.name);
