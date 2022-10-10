@@ -12,6 +12,6 @@ Kinga Zyborowicz
 - [x] Add favorite card
 - [x] Add changing number of cards
 - [x] Code cleanup
-- [ ] Add styling
+- [x] Add styling
 - [ ] Add unit tests
 - [ ] Add JSdoc

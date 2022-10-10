@@ -3,7 +3,7 @@ import { sortDataBy } from "./sorting";
 import { showModal } from "./modal";
 
 export const generateTable = (tableData) => {
-  const tableArea = document.getElementById("tableArea");
+  const tableArea = document.getElementById("table-area");
   const table = document.createElement("table");
   const filledThead = createTableHeader(tableData);
   const filledTbody = createTableBody(tableData);
@@ -25,6 +25,9 @@ const createTableHeader = (tableData) => {
     if (element.isSortable) {
       const ascSortButton = document.createElement("button");
       const descSortButton = document.createElement("button");
+
+      ascSortButton.classList.add("arrow", "up");
+      descSortButton.classList.add("arrow", "down");
 
       ascSortButton.addEventListener("click", () =>
         sortDataBy(element.key, "asc", tableData)

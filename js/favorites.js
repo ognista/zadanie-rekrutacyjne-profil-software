@@ -37,6 +37,9 @@ const createCard = (favItemData) => {
   const name = document.createElement("span");
   const favButton = document.createElement("button");
 
+  card.classList.add("card");
+  favButton.classList.add("fav-button");
+
   image.src = favItemData.image;
   name.innerText = favItemData.name;
   favButton.innerText = isItemInLocalStorage(favItemData)

@@ -20,6 +20,7 @@ export const showModal = (itemData) => {
 
   image.src = itemData.image;
   image.className = "modal-image";
+  favButton.classList.add("fav-button");
   name.innerHTML = itemData.name;
 
   favButton.innerText = isItemInLocalStorage(itemData)
