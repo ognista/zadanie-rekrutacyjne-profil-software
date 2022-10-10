@@ -4,7 +4,11 @@ import {
   updateLocalStorage,
 } from "./localStorage";
 
-import { ADD_TO_FAVORITES_TEXT, REMOVE_FROM_FAVORITES_TEXT } from "./constants";
+import {
+  ADD_TO_FAVORITES_TEXT,
+  REMOVE_FROM_FAVORITES_TEXT,
+  DEFAULT_IMAGE,
+} from "./constants";
 
 let numberOfColumns = 3;
 
@@ -40,7 +44,7 @@ const createCard = (favItemData) => {
   card.classList.add("card");
   favButton.classList.add("fav-button");
 
-  image.src = favItemData.image;
+  image.src = favItemData.image !== "" ? favItemData.image : DEFAULT_IMAGE;
   name.innerText = favItemData.name;
   favButton.innerText = isItemInLocalStorage(favItemData)
     ? REMOVE_FROM_FAVORITES_TEXT

@@ -1,5 +1,9 @@
 import { isItemInLocalStorage, updateLocalStorage } from "./localStorage";
-import { ADD_TO_FAVORITES_TEXT, REMOVE_FROM_FAVORITES_TEXT } from "./constants";
+import {
+  ADD_TO_FAVORITES_TEXT,
+  REMOVE_FROM_FAVORITES_TEXT,
+  DEFAULT_IMAGE,
+} from "./constants";
 
 const modal = document.getElementById("modal");
 
@@ -18,7 +22,7 @@ export const showModal = (itemData) => {
   const name = document.createElement("span");
   const favButton = document.createElement("button");
 
-  image.src = itemData.image;
+  image.src = itemData.image !== "" ? itemData.image : DEFAULT_IMAGE;
   image.className = "modal-image";
   favButton.classList.add("fav-button");
   name.innerHTML = itemData.name;

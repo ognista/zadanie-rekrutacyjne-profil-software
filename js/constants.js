@@ -12,3 +12,6 @@ export const LOCAL_STORAGE_KEY = "favorites";
 
 export const ADD_TO_FAVORITES_TEXT = "Add to fav";
 export const REMOVE_FROM_FAVORITES_TEXT = "Remove from fav";
+
+export const DEFAULT_IMAGE =
+  "https://www.pphfoundation.ca/wp-content/uploads/2018/05/default-avatar.png";

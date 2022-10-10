@@ -13,5 +13,6 @@ Kinga Zyborowicz
 - [x] Add changing number of cards
 - [x] Code cleanup
 - [x] Add styling
+- [ ] Add default image
 - [ ] Add unit tests
 - [ ] Add JSdoc
