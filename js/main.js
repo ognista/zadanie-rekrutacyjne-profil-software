@@ -12,7 +12,6 @@ const allStudentsFunc = async () => {
     if (response.ok) {
       const data = await response.json();
       generateTable(data);
-      console.log(data);
     }
   } catch (error) {
     console.log(error);
@@ -27,7 +26,6 @@ const GryffindorFunc = async () => {
     if (response.ok) {
       const data = await response.json();
       generateTable(data);
-      console.log(data);
     }
   } catch (error) {
     console.log(error);
@@ -42,7 +40,6 @@ const SlytherinFunc = async () => {
     if (response.ok) {
       const data = await response.json();
       generateTable(data);
-      console.log(data);
     }
   } catch (error) {
     console.log(error);
@@ -57,7 +54,6 @@ const HufflepuffFunc = async () => {
     if (response.ok) {
       const data = await response.json();
       generateTable(data);
-      console.log(data);
     }
   } catch (error) {
     console.log(error);
@@ -72,7 +68,6 @@ const RavenclawFunc = async () => {
     if (response.ok) {
       const data = await response.json();
       generateTable(data);
-      console.log(data);
     }
   } catch (error) {
     console.log(error);
@@ -84,6 +79,40 @@ GryffindorButton.addEventListener("click", GryffindorFunc);
 SlytherinButton.addEventListener("click", SlytherinFunc);
 HufflepuffButton.addEventListener("click", HufflepuffFunc);
 RavenclawButton.addEventListener("click", RavenclawFunc);
+
+const convertStringToDate = (stringDate) => {
+  // workaround to handle empty dates
+  if (stringDate === "") {
+    return new Date(1, 0, 1);
+  }
+
+  const split = stringDate.split("-");
+  return new Date(+split[2], split[1] - 1, split[0]);
+};
+
+const sortDataBy = (key, type, tableData) => {
+  if (type === "asc") {
+    if (key === "dateOfBirth") {
+      tableData.sort(
+        (item1, item2) =>
+          convertStringToDate(item1[key]) - convertStringToDate(item2[key])
+      );
+    } else {
+      tableData.sort((item1, item2) => item1[key].localeCompare(item2[key]));
+    }
+    generateTable(tableData);
+  } else if (type === "desc") {
+    if (key === "dateOfBirth") {
+      tableData.sort(
+        (item1, item2) =>
+          convertStringToDate(item2[key]) - convertStringToDate(item1[key])
+      );
+    } else {
+      tableData.sort((item1, item2) => item2[key].localeCompare(item1[key]));
+    }
+    generateTable(tableData);
+  }
+};
 
 const HEADERS = [
   { name: "Name", key: "name", isSortable: true },
@@ -98,7 +127,7 @@ const HEADERS = [
 const generateTable = (tableData) => {
   const tableArea = document.getElementById("tableArea");
   const table = document.createElement("table");
-  const filledThead = createTableHeader();
+  const filledThead = createTableHeader(tableData);
   const filledTbody = createTableBody(tableData);
 
   table.appendChild(filledThead);
@@ -107,13 +136,29 @@ const generateTable = (tableData) => {
   tableArea.appendChild(table);
 };
 
-const createTableHeader = () => {
+const createTableHeader = (tableData) => {
   const thead = document.createElement("thead");
 
   HEADERS.forEach((element) => {
     const th = document.createElement("th");
 
     th.appendChild(document.createTextNode(element.name));
+
+    if (element.isSortable) {
+      const ascSortButton = document.createElement("button");
+      const descSortButton = document.createElement("button");
+
+      ascSortButton.addEventListener("click", () =>
+        sortDataBy(element.key, "asc", tableData)
+      );
+
+      descSortButton.addEventListener("click", () =>
+        sortDataBy(element.key, "desc", tableData)
+      );
+
+      th.appendChild(ascSortButton);
+      th.appendChild(descSortButton);
+    }
 
     thead.appendChild(th);
   });
