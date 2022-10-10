@@ -187,6 +187,8 @@ const createTableRow = (itemData) => {
     tr.appendChild(filledTd);
   });
 
+  tr.addEventListener("click", () => showModal(itemData));
+
   return tr;
 };
 
@@ -197,4 +199,30 @@ const createTableCell = (value) => {
   td.title = value;
 
   return td;
+};
+
+const modal = document.getElementById("modal");
+
+const modalExit = document.querySelectorAll(".modal-exit");
+
+modalExit.forEach((element) => {
+  element.addEventListener("click", () => modal.classList.remove("open"));
+});
+
+const showModal = (itemData) => {
+  const modalBody = document.getElementById("modal-body");
+
+  modalBody.innerHTML = "";
+
+  const image = document.createElement("img");
+  const name = document.createElement("span");
+
+  image.src = itemData.image;
+  image.className = "modal-image";
+  name.innerHTML = itemData.name;
+
+  modalBody.appendChild(image);
+  modalBody.appendChild(name);
+
+  modal.classList.add("open");
 };

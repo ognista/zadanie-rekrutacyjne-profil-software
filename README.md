@@ -6,7 +6,7 @@ Kinga Zyborowicz
 - [x] Add buttons
 - [x] Add table
 - [x] Add sorting
-- [ ] Add modal
+- [x] Add modal
 - [ ] Add favorites
 - [ ] Add favorite subpage
 - [ ] Add favorite card
