@@ -8,7 +8,7 @@ Kinga Zyborowicz
 - [x] Add sorting
 - [x] Add modal
 - [x] Add favorites
-- [ ] Add favorite subpage
+- [x] Add favorite subpage
 - [ ] Add favorite card
 - [ ] Add changing number of cards
 - [ ] Code cleanup
