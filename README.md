@@ -9,7 +9,7 @@ Kinga Zyborowicz
 - [x] Add modal
 - [x] Add favorites
 - [x] Add favorite subpage
-- [ ] Add favorite card
+- [x] Add favorite card
 - [ ] Add changing number of cards
 - [ ] Code cleanup
 - [ ] Add styling
