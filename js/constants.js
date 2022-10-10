@@ -15,3 +15,5 @@ export const REMOVE_FROM_FAVORITES_TEXT = "Remove from fav";
 
 export const DEFAULT_IMAGE =
   "https://www.pphfoundation.ca/wp-content/uploads/2018/05/default-avatar.png";
+
+export const BASE_URL = "https://hp-api.herokuapp.com/api/characters";

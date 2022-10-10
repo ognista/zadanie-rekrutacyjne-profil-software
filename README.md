@@ -16,6 +16,7 @@ Kinga Zyborowicz
 - [x] Add default image
 - [x] Add unit tests
 - [x] Deploy site to Netlify
+- [x] Refactor fetching functions
 - [ ] Add JSdoc
 - [ ] Add more unit tests
 

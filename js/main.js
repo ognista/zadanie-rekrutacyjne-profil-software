@@ -1,83 +1,35 @@
+import { BASE_URL } from "./constants";
 import { generateTable } from "./table";
 
-const allStudentsButton = document.getElementById("allStudents");
-const GryffindorButton = document.getElementById("Gryffindor");
-const SlytherinButton = document.getElementById("Slytherin");
-const HufflepuffButton = document.getElementById("Hufflepuff");
-const RavenclawButton = document.getElementById("Ravenclaw");
+const fetchButtons = document.querySelectorAll(".fetch-button");
 
-const allStudentsFunc = async () => {
+fetchButtons.forEach((button) => {
+  button.addEventListener("click", () => fetchData(button.id));
+});
+
+const fetchData = async (buttonId) => {
   try {
-    const response = await fetch(
-      "https://hp-api.herokuapp.com/api/characters/students"
-    );
+    const response = await fetch(getUrl(buttonId));
     if (response.ok) {
       const data = await response.json();
       generateTable(data);
     }
   } catch (error) {
-    console.log(error);
+    console.log(`Error while fetching ${buttonId} ${error}`);
   }
 };
 
-const GryffindorFunc = async () => {
-  try {
-    const response = await fetch(
-      "https://hp-api.herokuapp.com/api/characters/house/gryffindor"
-    );
-    if (response.ok) {
-      const data = await response.json();
-      generateTable(data);
-    }
-  } catch (error) {
-    console.log(error);
+const getUrl = (buttonId) => {
+  switch (buttonId) {
+    case "allStudents":
+      return BASE_URL + "/students";
+    case "Gryffindor":
+      return BASE_URL + "/house/gryffindor";
+    case "Slytherin":
+      return BASE_URL + "/house/slytherin";
+    case "Hufflepuff":
+      return BASE_URL + "/house/hufflepuff";
+    case "Ravenclaw":
+      return BASE_URL + "/house/ravenclaw";
   }
 };
-
-const SlytherinFunc = async () => {
-  try {
-    const response = await fetch(
-      "https://hp-api.herokuapp.com/api/characters/house/slytherin"
-    );
-    if (response.ok) {
-      const data = await response.json();
-      generateTable(data);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const HufflepuffFunc = async () => {
-  try {
-    const response = await fetch(
-      "https://hp-api.herokuapp.com/api/characters/house/hufflepuff"
-    );
-    if (response.ok) {
-      const data = await response.json();
-      generateTable(data);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const RavenclawFunc = async () => {
-  try {
-    const response = await fetch(
-      "https://hp-api.herokuapp.com/api/characters/house/ravenclaw"
-    );
-    if (response.ok) {
-      const data = await response.json();
-      generateTable(data);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-allStudentsButton.addEventListener("click", allStudentsFunc);
-GryffindorButton.addEventListener("click", GryffindorFunc);
-SlytherinButton.addEventListener("click", SlytherinFunc);
-HufflepuffButton.addEventListener("click", HufflepuffFunc);
-RavenclawButton.addEventListener("click", RavenclawFunc);
