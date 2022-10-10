@@ -1,6 +1,6 @@
 import { generateTable } from "./table";
 
-const convertStringToDate = (stringDate) => {
+export const convertStringToDate = (stringDate) => {
   // workaround to handle empty dates
   if (stringDate === "") {
     return new Date(1, 0, 1);
