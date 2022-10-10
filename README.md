@@ -15,5 +15,8 @@ Kinga Zyborowicz
 - [x] Add styling
 - [x] Add default image
 - [x] Add unit tests
+- [x] Deploy site to Netlify
 - [ ] Add JSdoc
 - [ ] Add more unit tests
+
+Link to the application: https://aquamarine-blini-9d9aea.netlify.app/
