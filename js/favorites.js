@@ -4,9 +4,21 @@ import {
   updateLocalStorage,
 } from "./localStorage";
 
+let numberOfColumns = 3;
+
+const colButtons = document.querySelectorAll(".col-button");
+colButtons.forEach((colButton) => {
+  colButton.addEventListener("click", () => {
+    numberOfColumns = +colButton.innerHTML;
+    generateCards();
+  });
+});
+
 const generateCards = () => {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerText = "";
+
+  cardContainer.style.gridTemplateColumns = `repeat(${numberOfColumns}, 1fr)`;
 
   const localStorageData = getLocalStorage();
 

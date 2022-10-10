@@ -10,7 +10,7 @@ Kinga Zyborowicz
 - [x] Add favorites
 - [x] Add favorite subpage
 - [x] Add favorite card
-- [ ] Add changing number of cards
+- [x] Add changing number of cards
 - [ ] Code cleanup
 - [ ] Add styling
 - [ ] Add unit tests
