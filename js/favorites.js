@@ -4,6 +4,8 @@ import {
   updateLocalStorage,
 } from "./localStorage";
 
+import { ADD_TO_FAVORITES_TEXT, REMOVE_FROM_FAVORITES_TEXT } from "./constants";
+
 let numberOfColumns = 3;
 
 const colButtons = document.querySelectorAll(".col-button");
@@ -38,8 +40,8 @@ const createCard = (favItemData) => {
   image.src = favItemData.image;
   name.innerText = favItemData.name;
   favButton.innerText = isItemInLocalStorage(favItemData)
-    ? "Remove from fav"
-    : "Add to fav";
+    ? REMOVE_FROM_FAVORITES_TEXT
+    : ADD_TO_FAVORITES_TEXT;
 
   favButton.addEventListener("click", () => {
     updateLocalStorage(favItemData, favButton);

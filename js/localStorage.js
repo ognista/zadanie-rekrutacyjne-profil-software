@@ -1,5 +1,11 @@
+import {
+  LOCAL_STORAGE_KEY,
+  ADD_TO_FAVORITES_TEXT,
+  REMOVE_FROM_FAVORITES_TEXT,
+} from "./constants";
+
 export const getLocalStorage = () => {
-  const localStorageData = window.localStorage.getItem("favorites");
+  const localStorageData = window.localStorage.getItem(LOCAL_STORAGE_KEY);
   return localStorageData ? JSON.parse(localStorageData) : [];
 };
 
@@ -11,17 +17,17 @@ export const updateLocalStorage = (itemData, favButton) => {
       (item) => item.name !== itemData.name
     );
     window.localStorage.setItem(
-      "favorites",
+      LOCAL_STORAGE_KEY,
       JSON.stringify(updatedLocalStorageData)
     );
-    favButton.innerText = "Add to fav";
+    favButton.innerText = ADD_TO_FAVORITES_TEXT;
   } else {
     const updatedLocalStorageData = [...localStorageData, itemData];
     window.localStorage.setItem(
-      "favorites",
+      LOCAL_STORAGE_KEY,
       JSON.stringify(updatedLocalStorageData)
     );
-    favButton.innerText = "Remove from fav";
+    favButton.innerText = REMOVE_FROM_FAVORITES_TEXT;
   }
 };
 
