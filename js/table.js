@@ -2,6 +2,11 @@ import { HEADERS } from "./constants";
 import { sortDataBy } from "./sorting";
 import { showModal } from "./modal";
 
+/**
+ * Function which generates table
+ *
+ * @param tableData {Array<{patronus: string, hogwartsStudent: boolean, image: string, ancestry: string, gender: string, alive: boolean, hairColour: string, dateOfBirth: string, house: string, hogwartsStaff: boolean, alternate_names: Array<any>, actor: string, alternate_actors: Array<any>, species: string, wand: {core: string, length: number, wood: string}, name: string, wizard: boolean, eyeColour: string, yearOfBirth: number}>}
+ */
 export const generateTable = (tableData) => {
   const tableArea = document.getElementById("table-area");
   const table = document.createElement("table");
@@ -13,7 +18,12 @@ export const generateTable = (tableData) => {
   tableArea.innerHTML = "";
   tableArea.appendChild(table);
 };
-
+/**
+ * Function that creates header for table
+ *
+ * @param tableData {Array<{patronus: string, hogwartsStudent: boolean, image: string, ancestry: string, gender: string, alive: boolean, hairColour: string, dateOfBirth: string, house: string, hogwartsStaff: boolean, alternate_names: Array<any>, actor: string, alternate_actors: Array<any>, species: string, wand: {core: string, length: number, wood: string}, name: string, wizard: boolean, eyeColour: string, yearOfBirth: number}>}
+ * @returns {HTMLTableSectionElement}
+ */
 const createTableHeader = (tableData) => {
   const thead = document.createElement("thead");
 
@@ -47,6 +57,12 @@ const createTableHeader = (tableData) => {
   return thead;
 };
 
+/**
+ * Function which creates table body
+ *
+ * @param tableData {Array<{patronus: string, hogwartsStudent: boolean, image: string, ancestry: string, gender: string, alive: boolean, hairColour: string, dateOfBirth: string, house: string, hogwartsStaff: boolean, alternate_names: Array<any>, actor: string, alternate_actors: Array<any>, species: string, wand: {core: string, length: number, wood: string}, name: string, wizard: boolean, eyeColour: string, yearOfBirth: number}>}
+ * @returns {HTMLTableSectionElement}
+ */
 const createTableBody = (tableData) => {
   const tbody = document.createElement("tbody");
 
@@ -59,6 +75,12 @@ const createTableBody = (tableData) => {
   return tbody;
 };
 
+/**
+ * Function which creates single table row
+ *
+ * @param itemData {{patronus: string, hogwartsStudent: boolean, image: string, ancestry: string, gender: string, alive: boolean, hairColour: string, dateOfBirth: string, house: string, hogwartsStaff: boolean, alternate_names: Array<any>, actor: string, alternate_actors: Array<any>, species: string, wand: {core: string, length: number, wood: string}, name: string, wizard: boolean, eyeColour: string, yearOfBirth: number}}
+ * @returns {HTMLTableRowElement}
+ */
 const createTableRow = (itemData) => {
   const tr = document.createElement("tr");
 
@@ -73,6 +95,12 @@ const createTableRow = (itemData) => {
   return tr;
 };
 
+/**
+ * Function which creates single table cell
+ *
+ * @param value {string}
+ * @returns {HTMLTableCellElement}
+ */
 const createTableCell = (value) => {
   const td = document.createElement("td");
 

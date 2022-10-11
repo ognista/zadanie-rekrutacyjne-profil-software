@@ -13,6 +13,11 @@ modalExit.forEach((element) => {
   element.addEventListener("click", () => modal.classList.remove("open"));
 });
 
+/**
+ * Function which shows modal for certain item
+ *
+ * @param itemData {{patronus: string, hogwartsStudent: boolean, image: string, ancestry: string, gender: string, alive: boolean, hairColour: string, dateOfBirth: string, house: string, hogwartsStaff: boolean, alternate_names: Array<any>, actor: string, alternate_actors: Array<any>, species: string, wand: {core: string, length: number, wood: string}, name: string, wizard: boolean, eyeColour: string, yearOfBirth: number}}
+ */
 export const showModal = (itemData) => {
   const modalBody = document.getElementById("modal-body");
 

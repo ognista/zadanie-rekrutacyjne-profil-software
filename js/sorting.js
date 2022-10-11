@@ -1,5 +1,10 @@
 import { generateTable } from "./table";
 
+/**
+ * Function which returns Date object for string
+ * @param stringDate {string}
+ * @returns {Date}
+ */
 export const convertStringToDate = (stringDate) => {
   // workaround to handle empty dates
   if (stringDate === "") {
@@ -10,6 +15,13 @@ export const convertStringToDate = (stringDate) => {
   return new Date(+split[2], split[1] - 1, split[0]);
 };
 
+/**
+ * Function which sorts table by key based on type "asc" for ascending sorting "desc" for descending
+ *
+ * @param key {string}
+ * @param type {"asc"|"desc"}
+ * @param tableData {Array<{patronus: string, hogwartsStudent: boolean, image: string, ancestry: string, gender: string, alive: boolean, hairColour: string, dateOfBirth: string, house: string, hogwartsStaff: boolean, alternate_names: Array<any>, actor: string, alternate_actors: Array<any>, species: string, wand: {core: string, length: number, wood: string}, name: string, wizard: boolean, eyeColour: string, yearOfBirth: number}>}
+ */
 export const sortDataBy = (key, type, tableData) => {
   if (type === "asc") {
     if (key === "dateOfBirth") {

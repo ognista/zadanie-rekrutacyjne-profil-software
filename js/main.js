@@ -6,7 +6,12 @@ const fetchButtons = document.querySelectorAll(".fetch-button");
 fetchButtons.forEach((button) => {
   button.addEventListener("click", () => fetchData(button.id));
 });
-
+/**
+ * Function which fetches data based on button id and generates tables
+ *
+ * @param buttonId {string}
+ * @returns {Promise<void>}
+ */
 const fetchData = async (buttonId) => {
   try {
     const response = await fetch(getUrl(buttonId));
@@ -19,6 +24,12 @@ const fetchData = async (buttonId) => {
   }
 };
 
+/**
+ * Function which returns proper url based on button id
+ *
+ * @param buttonId {string}
+ * @returns {string}
+ */
 const getUrl = (buttonId) => {
   switch (buttonId) {
     case "allStudents":

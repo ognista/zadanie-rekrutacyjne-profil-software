@@ -20,6 +20,10 @@ colButtons.forEach((colButton) => {
   });
 });
 
+/**
+ * Function which generates cards based on local storage
+ *
+ */
 const generateCards = () => {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerText = "";
@@ -35,6 +39,12 @@ const generateCards = () => {
   });
 };
 
+/**
+ * Function which generates single card
+ *
+ * @param favItemData {{patronus: string, hogwartsStudent: boolean, image: string, ancestry: string, gender: string, alive: boolean, hairColour: string, dateOfBirth: string, house: string, hogwartsStaff: boolean, alternate_names: Array<any>, actor: string, alternate_actors: Array<any>, species: string, wand: {core: string, length: number, wood: string}, name: string, wizard: boolean, eyeColour: string, yearOfBirth: number}}
+ * @returns {HTMLDivElement}
+ */
 const createCard = (favItemData) => {
   const card = document.createElement("div");
   const image = document.createElement("img");
