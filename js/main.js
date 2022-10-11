@@ -30,7 +30,7 @@ const fetchData = async (buttonId) => {
  * @param buttonId {string}
  * @returns {string}
  */
-const getUrl = (buttonId) => {
+export const getUrl = (buttonId) => {
   switch (buttonId) {
     case "allStudents":
       return BASE_URL + "/students";

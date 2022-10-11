@@ -17,7 +17,8 @@ Kinga Zyborowicz
 - [x] Add unit tests
 - [x] Deploy site to Netlify
 - [x] Refactor fetching functions
-- [ ] Add JSdoc
-- [ ] Add more unit tests
+- [x] Add JSdoc
+- [x] Add more unit tests
+- [ ] Add better routing
 
 Link to the application: https://aquamarine-blini-9d9aea.netlify.app/
